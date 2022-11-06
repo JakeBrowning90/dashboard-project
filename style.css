@@ -7,6 +7,10 @@ html * {
     font-family: Ubuntu;
 }
 
+h2 {
+    font-weight: bold;
+}
+
 div {
     border: 1px solid black;
 }
@@ -38,6 +42,10 @@ button {
     justify-content: space-around;
 }
 
+/*.sidebar, .sidebar > * {
+    border-style: none;
+}*/
+
 .sidebar {
     background-color: #aed3e1;
     grid-column: 1 / 2;
@@ -46,24 +54,31 @@ button {
     grid-template-rows: 2fr repeat(10, 1fr) 4fr;
 }
 
+.logo-space {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
 .sidebar-link {
     display: flex;
     align-items: center;
     justify-items: center;
-    padding-left: 15px;
-}
-
-.sidebar-link > a:link, .sidebar-link > a:visited {
-    color: black;
-    text-decoration: none;
     height: 100%;
     width: 100%;
+    padding-left: 15px;
+    color: black;
+    text-decoration: none;
     text-justify: center;
-    padding: 10px 10px 10px 10px;
+}
+
+.sidebar-link:hover {
+    background-color: azure;
 }
 
 .main-content {
-    background-color: #d6d3d3;
+    background-color: #ececec;
     padding: 5px;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -101,7 +116,7 @@ button {
     box-shadow: 2px 5px 8px #888888;
     display: grid;
     grid-template-columns: 15px 1fr;
-    grid-template-rows: 100px 1fr 1fr;
+    grid-template-rows: 100px 2fr 1fr;
 }
 
 .dish-photo > img {
@@ -142,6 +157,10 @@ button {
     grid-template-rows: 1em repeat(4, 1fr);
 }
 
+.trending > * {
+    align-items: center;
+}
+
 .trend {
     display: grid;
     grid-template-columns: 60px 1fr;
@@ -152,4 +171,11 @@ button {
 
 .pfp {
     grid-area: 1/1/3/2;
+}
+
+.pfp > img {
+    object-fit: contain;
+    border-radius: 50%;
+    max-width: 100%;
+    max-height: 100%;
 }
