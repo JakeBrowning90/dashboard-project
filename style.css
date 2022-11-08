@@ -7,17 +7,20 @@ html * {
     font-family: Ubuntu;
 }
 
-h2 {
+h1 {
     font-weight: bold;
+    font-size: 1.5em;
 }
 
-div {
-    border: 1px solid black;
+h2 {
+    font-weight: bold;
 }
 
 button {
     padding: 5px 20px;
     border-radius: 15px;
+    background-color: #aed3e1;
+    font-size: 1.5em;
 }
 
 .container {
@@ -30,28 +33,66 @@ button {
 
 .header {
     background-color: #e6f5fb;
+    box-shadow: 2px 5px 8px #888888;
     grid-column: 2 / 3;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 2fr;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.header > * {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.search-bar input {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ececec;
+}
+
+.notifications {
+    display: grid;
+    grid-template-columns: 30px 30px 1fr;
+    align-content: center;
+    column-gap: 5px;
+
+}
+
+.notifications > .pfp {
+    height: auto;
+    grid-column: 2 / 3;
 }
 
 .buttons {
-    display: flex;
-    align-items: center;
     justify-content: space-around;
 }
 
+.user-greeting {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    text-align: left;
+    column-gap: 5px;
+}
 /*.sidebar, .sidebar > * {
     border-style: none;
 }*/
 
 .sidebar {
+    height: auto;
     background-color: #aed3e1;
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     display: grid;
     grid-template-rows: 2fr repeat(10, 1fr) 4fr;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .logo-space {
@@ -62,19 +103,21 @@ button {
 }
 
 .sidebar-link {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-items: center;
     height: 100%;
     width: 100%;
-    padding-left: 15px;
     color: black;
     text-decoration: none;
-    text-justify: center;
 }
 
 .sidebar-link:hover {
     background-color: azure;
+}
+
+.sidebar-link-icon {
+    justify-self: center;
 }
 
 .main-content {
@@ -86,6 +129,7 @@ button {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: 8fr 3fr;
     gap: 5px;
+    overflow: scroll;
 }
 
 .projects {
@@ -95,7 +139,7 @@ button {
     padding: 5px;
 }
 
-.card, .story, .trend{
+.card-icons, .dish-name, .story, .trend{
     background-color: rgb(255, 245, 233);
 }
 
@@ -104,6 +148,7 @@ button {
 }
 
 .card-field {
+    padding-top: 5px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 5px;
@@ -112,11 +157,11 @@ button {
 .card {
     border-style: none; /*Remove all borders later!*/
     border-radius: 8px;
-    height: 150px;
+    height: 200px;
     box-shadow: 2px 5px 8px #888888;
     display: grid;
     grid-template-columns: 15px 1fr;
-    grid-template-rows: 100px 2fr 1fr;
+    grid-template-rows: 150px 1fr 25px;
 }
 
 .dish-photo > img {
@@ -131,19 +176,30 @@ button {
     border-radius: 7px 0 0 7px;
 }
 
-.dish-photo {
+.dish-photo > img {
     border-radius: 0 7px 0 0;
 }
 
 .dish-name {
-    font-size: 1em;
+    padding: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-icons {
     border-radius: 0 0 7px 0;
+    padding: 2px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-icons > img {
+    object-fit: contain;
 }
 
 .announcements{
+    padding-top: 5px;
     display: grid;
     grid-template-rows: 1em repeat(3, 1fr);
 }
@@ -153,12 +209,14 @@ button {
 }
 
 .trending {
+    padding-top: 5px;
     display: grid;
     grid-template-rows: 1em repeat(4, 1fr);
 }
 
 .trending > * {
     align-items: center;
+    padding: 5px;
 }
 
 .trend {
